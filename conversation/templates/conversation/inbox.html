@@ -1,5 +1,5 @@
-{% extends 'core/base.html' %} {% block title %}Inbox{% endblock %} {% block
-content %} {% block content %}
+{% extends 'core/base.html' %} {% block title %}Inbox{% endblock %} 
+{% block content %} 
 <h1 class="mb-6 text-3xl">Inbox</h1>
 <div class="space-y-6">
   {% for conversation in conversations %}
@@ -8,13 +8,11 @@ content %} {% block content %}
       <div class="pr-6">
         <img src="{{ conversation.item.image.url }}" class="w-20 rounded-xl" />
       </div>
-
       <div>
-        {% for member in conversation.members.all %} {% if member !=
-        request.user %} {% if member != request.user %}
+        {% for member in conversation.members.all %}
+        {% if member != request.user %}
         <p class="mb-4">
-          <strong>{{ member.username }}</strong> | {{ conversation.modified_at
-          }}
+          <strong>{{ member.username }}</strong> | {{ conversation.modified_at }}
         </p>
         <p>{{ conversation.item.name }}</p>
         {% endif %} {% endfor %}
